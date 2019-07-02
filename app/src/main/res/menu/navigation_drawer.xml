@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single" >
+        <item
+            android:id="@+id/chat"
+            android:icon="@drawable/ic_message"
+            android:title="Chat" />
+        <item android:title="Message"
+            android:icon="@drawable/ic_mail"
+            android:id="@+id/mail" />
+    </group>
+
+    <item android:title="Commmunicate" >
+                <menu>
+                    <item android:id="@+id/share"
+                        android:icon="@drawable/ic_share"
+                        android:title="Share" />
+                    <item android:id="@+id/send"
+                        android:title="Send"
+                        android:icon="@drawable/ic_send" />
+                </menu>
+        </item>
+
+</menu>
