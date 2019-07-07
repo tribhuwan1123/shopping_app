@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.example.android.shop.adapter.CartAdapter;
 import com.example.android.shop.model.Cart;
 
@@ -61,11 +62,11 @@ public class DisplayActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent= new Intent(DisplayActivity.this,CartActivity.class);
-                intent.putExtra("name",pName);
-                intent.putExtra("price",price);
-                intent.putExtra("image",image);
-                startActivity(intent);
+//                Intent intent= new Intent(DisplayActivity.this, CartActivity.class);
+//                intent.putExtra("name",pName);
+//                intent.putExtra("price",price);
+//                intent.putExtra("image",image);
+//                startActivity(intent);
 
             }
         });

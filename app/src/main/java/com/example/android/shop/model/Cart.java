@@ -4,8 +4,10 @@ import android.graphics.Bitmap;
 
 public class Cart {
 
-    private String pName,pPrice;
-    private Bitmap imageCart;
+    public String pName,pPrice;
+  //  public Bitmap imageCart;
+
+
 
     public String getpName() {
         return pName;
@@ -23,11 +25,11 @@ public class Cart {
         this.pPrice = pPrice;
     }
 
-    public Bitmap getImageCart() {
-        return imageCart;
-    }
-
-    public void setImageCart(Bitmap imageCart) {
-        this.imageCart = imageCart;
-    }
+//    public Bitmap getImageCart() {
+//        return imageCart;
+//    }
+//
+//    public void setImageCart(Bitmap imageCart) {
+//        this.imageCart = imageCart;
+//    }
 }

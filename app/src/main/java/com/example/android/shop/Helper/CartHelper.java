@@ -31,7 +31,7 @@ public class CartHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE CART(ID INTEGER PRIMARY KEY AUTOINCREMENT,PRODUCT_NAME TEXT,PRICE TEXT,IMAGE BLOB)");
+        db.execSQL("CREATE TABLE CART(ID INTEGER PRIMARY KEY AUTOINCREMENT,PRODUCT_NAME TEXT,PRICE TEXT)");
     }
 
     @Override
@@ -39,24 +39,26 @@ public class CartHelper extends SQLiteOpenHelper {
 
     }
 
-    public Long insertCart(String name, String price, byte image)
+    public Long insertCart(String name,String price)
     {
         SQLiteDatabase sqLiteDatabase= this.getWritableDatabase();
         ContentValues contentValues= new ContentValues();
         //byte[] data = getBitmapAsByteArray(image);
         contentValues.put("PRODUCT_NAME",name);
         contentValues.put("PRICE",price);
-        contentValues.put("IMAGE",image);
+        //contentValues.put("IMAGE",getBytes(cart.getImageCart()));
         Long id=sqLiteDatabase.insert("CART",null, contentValues);
 
         Log.v("insert","Data inserted "+id);
         return id;
     }
-    public static byte[] getBitmapAsByteArray(Bitmap bitmap) {
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 0, outputStream);
-        return outputStream.toByteArray();
-    }
+
+//    public static byte[] getBytes(Bitmap bitmap) {
+//        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+//        bitmap.compress(Bitmap.CompressFormat.PNG, 0, stream);
+//        return stream.toByteArray();
+//    }
+
 
 
     public List<Cart> getAllProducts()
@@ -70,10 +72,9 @@ public class CartHelper extends SQLiteOpenHelper {
                 Cart cart= new Cart();
                 cart.setpName(cursor.getString(cursor.getColumnIndex("PRODUCT_NAME")));
                 cart.setpPrice(cursor.getString(cursor.getColumnIndex("PRICE")));
-                String IMAGES="IMAGE";
-                byte[] image = cursor.getBlob(cursor.getColumnIndex(IMAGES));
-                Bitmap  bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
-                cart.setImageCart(bitmap);
+    //            byte[] image = cursor.getBlob(cursor.getColumnIndex("IMAGE"));
+  //              Bitmap  bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
+//                cart.setImageCart(bitmap);
                 cartList.add(cart);
 
             }while (cursor.moveToNext());
@@ -82,4 +83,5 @@ public class CartHelper extends SQLiteOpenHelper {
         return cartList;
 
     }
+
 }

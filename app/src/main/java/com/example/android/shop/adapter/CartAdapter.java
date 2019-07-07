@@ -38,7 +38,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         Cart cart= cartList.get(i);
         cartViewHolder.pName.setText(cart.getpName());
         cartViewHolder.price.setText(cart.getpPrice());
-        cartViewHolder.imageCart.setImageBitmap(cart.getImageCart());
+      //  cartViewHolder.imageCart.setImageBitmap(cart.getImageCart());
     }
 
     @Override
@@ -49,14 +49,14 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     public class CartViewHolder extends RecyclerView.ViewHolder
     {
         TextView pName,price;
-        ImageView imageCart;
+        //ImageView imageCart;
         ImageButton remove;
         public CartViewHolder(@NonNull View itemView) {
             super(itemView);
 
             pName=(TextView)itemView.findViewById(R.id.pName);
             price=(TextView)itemView.findViewById(R.id.pPrice);
-            imageCart=(ImageView)itemView.findViewById(R.id.imageCart);
+           // imageCart=(ImageView)itemView.findViewById(R.id.imageCart);
             remove=(ImageButton)itemView.findViewById(R.id.remove);
 
         }

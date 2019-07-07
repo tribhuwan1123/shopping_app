@@ -7,6 +7,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -24,17 +25,20 @@ import com.bumptech.glide.Glide;
 import com.example.android.shop.Fragment.CartFragment;
 import com.example.android.shop.Fragment.HomeFragment;
 import com.example.android.shop.adapter.AdapterFragmentPager;
+import com.example.android.shop.adapter.ProductAdapter;
 
 
 public class BottomNavigation extends AppCompatActivity {
     Fragment selectedFragment = new HomeFragment();
     String displayName, displayImage, displayEmail, userFrom, firstName, lastName;
     DrawerLayout bDrawerLayout;
-   // Bundle sendUserFromActivity;
+    // Bundle sendUserFromActivity;
     NavigationView navigationView;
     TextView profileName, profileEmail;
-   // ViewPager fragmentPager;
+    ProductAdapter productAdapter;
+    // ViewPager fragmentPager;
     ImageView profileImage;
+    FragmentManager fm=getSupportFragmentManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,14 +50,13 @@ public class BottomNavigation extends AppCompatActivity {
         Toolbar bToolbar = (Toolbar) findViewById(R.id.bToolbar);
         setSupportActionBar(bToolbar);
 
-        ActionBarDrawerToggle toggle= new ActionBarDrawerToggle(this,bDrawerLayout,bToolbar,R.string.open,R.string.close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, bDrawerLayout, bToolbar, R.string.open, R.string.close);
         bDrawerLayout.addDrawerListener(toggle);
 
         View headerView = navigationView.getHeaderView(0);
         profileName = (TextView) headerView.findViewById(R.id.profileName);
         profileEmail = (TextView) headerView.findViewById(R.id.profileEmail);
         profileImage = (ImageView) headerView.findViewById(R.id.profileImage);
-
 
 
         Intent intent = getIntent();
@@ -80,6 +83,7 @@ public class BottomNavigation extends AppCompatActivity {
         BottomNavigationView bottomNavigation = findViewById(R.id.bottomNav);
         bottomNavigation.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, selectedFragment).commit();
+        productAdapter=new ProductAdapter(fm);
     }
 
     public BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener =
@@ -112,6 +116,4 @@ public class BottomNavigation extends AppCompatActivity {
             super.onBackPressed();
         }
     }
-
-
 }

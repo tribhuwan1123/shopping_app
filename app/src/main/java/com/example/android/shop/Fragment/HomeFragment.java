@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -24,7 +25,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.example.android.shop.R;
 
 import com.example.android.shop.adapter.ImageAdapter;
@@ -40,7 +44,6 @@ public class HomeFragment extends Fragment{
 
     ViewPager viewPager;
     LinearLayout linearLayout;
-    NavigationView navigationView;
     private int dotsCount;
     DrawerLayout drawerLayout;
     private ImageView[] dots;
@@ -76,12 +79,11 @@ public class HomeFragment extends Fragment{
         viewPager = (ViewPager) view.findViewById(R.id.viewPage);
         linearLayout = (LinearLayout) view.findViewById(R.id.dots);
 
-        navigationView = view.findViewById(R.id.navDrawer);
 
-        View headerView = navigationView.getHeaderView(0);
-        profileName = (TextView) headerView.findViewById(R.id.profileName);
-        profileEmail = (TextView) headerView.findViewById(R.id.profileEmail);
-        profileImage = (ImageView) headerView.findViewById(R.id.profileImage);
+
+
+
+
 
         ImageAdapter imageAdapter = new ImageAdapter(getActivity());
 
@@ -133,25 +135,25 @@ public class HomeFragment extends Fragment{
 
         Product product1 = new Product();
         product1.setProductName("Laptop");
-        product1.setProductPrice("Rs.50000");
+        product1.setProductPrice("10");
         product1.setDescription("Nice");
         product1.setImageView(R.drawable.laptop);
 
         Product product2 = new Product();
         product2.setProductName("Honor 8x");
-        product2.setProductPrice("Rs.32000");
+        product2.setProductPrice("10");
         product2.setDescription("Good camera and good for gaming");
         product2.setImageView(R.drawable.honor);
 
         Product product3 = new Product();
         product3.setProductName("Women Casual Wear");
-        product3.setProductPrice("Rs.5000");
+        product3.setProductPrice("10");
         product3.setDescription("Suits your looks");
         product3.setImageView(R.drawable.dress);
 
         Product product4 = new Product();
         product4.setProductName("Goldstar Boot");
-        product4.setProductPrice("Rs.1050");
+        product4.setProductPrice("10");
         product4.setDescription("Great product.Made in Nepal");
         product4.setImageView(R.drawable.goldstar);
 
