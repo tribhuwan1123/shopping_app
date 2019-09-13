@@ -23,6 +23,7 @@ public class CartHelper extends SQLiteOpenHelper {
 
     static String DB_NAME = "Cart";
     static int version=1;
+
     List<Cart> cartList=new ArrayList<>();
 
     public CartHelper(Context context,String name,SQLiteDatabase.CursorFactory factory, int version) {

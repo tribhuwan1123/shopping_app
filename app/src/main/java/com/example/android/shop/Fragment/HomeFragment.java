@@ -78,13 +78,6 @@ public class HomeFragment extends Fragment{
         recyclerView = (RecyclerView) view.findViewById(R.id.rvMain);
         viewPager = (ViewPager) view.findViewById(R.id.viewPage);
         linearLayout = (LinearLayout) view.findViewById(R.id.dots);
-
-
-
-
-
-
-
         ImageAdapter imageAdapter = new ImageAdapter(getActivity());
 
         viewPager.setAdapter(imageAdapter);

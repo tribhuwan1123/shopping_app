@@ -37,7 +37,7 @@ public class CartFragment extends Fragment {
 
     List<Cart> cartList = new ArrayList<>();
     String pname;
-    String pPrice;
+    String pPrice="10";
     int pImage;
     int amount;
     private static final String CONFIG_ENVIRONMENT = ESewaConfiguration.ENVIRONMENT_TEST;
